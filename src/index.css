@@ -1,0 +1,13 @@
+body {
+  font-family: Arial;
+}
+
+nav {
+  padding: 10px;
+  background: #f4f4f4;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
