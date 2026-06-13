@@ -1,16 +1,68 @@
-# React + Vite
+# Travel Explorer - Performance Optimization
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Objective
+Optimize the performance of an existing React travel website using Google Lighthouse.
 
-Currently, two official plugins are available:
+## Tools Used
+* React
+* Vite
+* Google Lighthouse
+* VS Code
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Optimizations Implemented
 
-## React Compiler
+### 1. Image Optimization
+* Converted hero image from JPEG to WebP
+* Reduced image size from 1.37 MB to 379 KB
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 2. Lazy Loading
+Added lazy loading for destination images:
 
-## Expanding the ESLint configuration
+jsx
+<img
+  src={destination.image}
+  alt={destination.name}
+  loading="lazy"
+  decoding="async"
+/>
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+### 3. Production Build
+Used:
+
+bash
+npm run build
+npm run preview
+
+
+### 4. Reduced Network Payload
+* Optimized hero background image
+* Improved Largest Contentful Paint (LCP)
+
+## Lighthouse Results
+
+### Before Optimization
+
+ Metric  Score
+ Performance  72 
+ Accessibility 93 
+ Best Practices 100 
+ SEO 83 
+
+### After Optimization
+
+ Metric Score 
+ Performance 100 
+ Accessibility 93 
+ Best Practices 96 
+ SEO 83
+
+## Performance Improvements
+
+ Metric Before After 
+| FCP | 1.1s | 0.3s |
+| LCP | 3.0s | 0.7s |
+
+## Conclusion
+
+The website performance was significantly improved through image optimization, lazy loading, and production build optimization. Lighthouse Performance Score increased from 72 to 100.
